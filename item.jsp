@@ -35,7 +35,7 @@
             <div class="item-detail-img">
                 <img src="assets/product.png" alt="product">
             </div>
-            <form class="item-deital-metadata" action="controller/cart-controller.jsp?type=add" method="POST">
+            <form class="item-deital-metadata" action="./controller/CartController" method="POST">
                 <div class="item-detail-name">
                     <p>Off White T</p>
                 </div>

@@ -6,7 +6,7 @@
 <div class="header">
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a href="/waserel/index.jsp" class="navtar-item">
+            <a href="/waserel/" class="navtar-item">
                 <img src="assets/WASEREL.png" alt="icon" width=112 height="28">
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
