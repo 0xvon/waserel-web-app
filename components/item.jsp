@@ -8,7 +8,7 @@
 <c:set var="itemStock" value="${param.itemStock}" />
 <c:set var="itemImage" value="${param.itemImage}" />
 
-<a class="item" href="/waserel/item.jsp?id=${item.productId}">
+<a class="item" href="/waserel/item.jsp?id=${itemId}">
     <div class="item-img">
         <img src="assets/${itemImage}.png" alt="product">
     </div>
