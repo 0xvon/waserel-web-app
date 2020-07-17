@@ -71,10 +71,10 @@
             <div class="sum">￥1500000</div>
         </div>
         <div class="confirm-button">
-            <button class="button is-rounded" type="submit">confirm</button>
+            <a href="/waserel/confirmation.jsp">
+                <button class="button is-rounded" type="submit">confirm</button>
+            </a>
         </div>
-
     </div> 
-    
 </body>
 </html>
