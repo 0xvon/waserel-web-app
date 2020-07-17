@@ -43,7 +43,7 @@
                     <tbody>
                         <tr>
                             <th>値段</th>
-                            <th>￥30000</th>
+                            <th>￥300000</th>
                         </tr>
                         <tr>
                             <th>商品ID</th>

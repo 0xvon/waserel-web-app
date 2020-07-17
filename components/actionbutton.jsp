@@ -14,4 +14,7 @@
     <c:when test="${actionType == 'subtract'}">
         <button class="actionButton" type="button" onclick="subtractCount()">ー</button>
     </c:when>
+    <c:when test="${actionType == 'delete'}">
+        <button class="actionButton" type="button" onclick="deleteOrder()">✕</button>
+    </c:when>
 </c:choose>
