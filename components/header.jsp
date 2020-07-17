@@ -19,17 +19,17 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <a href="#">
+                    <a href="/waserel/history.jsp">
                         <img src="assets/history.png" alt="sales history" height="28">
                     </a>
                 </div>
-                <div class="navbar-item">
+                <!-- <div class="navbar-item">
                     <a href="#">
                         <img src="assets/mypage.png" alt="mypage" height="28">
                     </a>
-                </div>
+                </div> -->
                 <div class="navbar-item">
-                    <a href="#">
+                    <a href="/waserel/cart.jsp">
                         <img src="assets/cart.png" alt="cart" height="28">
                     </a>
                 </div>
