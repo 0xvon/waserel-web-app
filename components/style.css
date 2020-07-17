@@ -253,3 +253,14 @@ tbody tr td {
     margin: 100px 0;
     width: 80%;
 }
+
+/* confirmation */
+
+.confirmation {
+    width: 70% !important;
+    margin: auto;
+}
+
+.select-button {
+    text-align: left !important;
+}

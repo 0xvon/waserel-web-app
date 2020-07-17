@@ -29,44 +29,42 @@
 
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />
-    <jsp:include page="./components/pagetitle.jsp?title=HISTORY" flush="true" />
+    <jsp:include page="./components/pagetitle.jsp?title=CONFIRMATION" flush="true" />
+    <form class="confirmation" action="controller/confirm-controller.jsp" method="POST">
+        <div class="field">
+            <label class="label">name</label>
+            <div class="control">
+                <input class="input is-rounded" name="identity" type="text" placeholder="山田 太郎">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">address</label>
+            <div class="control">
+                <input class="input is-rounded" name="address" type="text" placeholder="東京都新宿区大久保1-1-1">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">payment</label>
+            <div class="control select-button">
+                <div class="select is-large">
+                  <select name="payment">
+                    <option selected value="credit">クレジットカード</option>
+                    <option value="convenience">コンビニ振込</option>
+                    <option value="applePay">Apple Pay</option>
+                  </select>
+                </div>
+                <span class="icon is-large is-left">
+                  <i class="fas fa-globe"></i>
+                </span>
+              </div>
+        </div>
 
-    <div class="history">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>日時</th>
-                    <th>商品名</th>
-                    <th>サイズ</th>
-                    <th>量</th>
-                    <th>値段</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2020/07/01</td>
-                    <td>Off-White T</td>
-                    <td>M</td>
-                    <td>1</td>
-                    <td>300000</td>
-                </tr>
-                <tr>
-                    <td>2020/07/01</td>
-                    <td>Off-White T</td>
-                    <td>M</td>
-                    <td>1</td>
-                    <td>300000</td>
-                </tr>
-                <tr>
-                    <td>2020/07/01</td>
-                    <td>Off-White T</td>
-                    <td>M</td>
-                    <td>1</td>
-                    <td>300000</td>
-                </tr>
-            </tbody>
-        </table>
-    </div> 
+        <div class="field">
+            <div class="control">
+                <button class="button is-rounded" type="submit">GO</button>
+            </div>
+        </div>
+    </form>
     
 </body>
 </html>
