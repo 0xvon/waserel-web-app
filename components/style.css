@@ -32,6 +32,17 @@ a {
     font-size: 1.5rem;
 }
 
+.badge {
+    width: 15px !important;
+    height: 15px !important;
+    background-color: white !important;
+    border: 2px solid crimson;
+    border-radius: 10px;
+    position: relative;
+    top: 4px;
+    right: 20px;
+}
+
 /* login */
 
 .login {

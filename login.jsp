@@ -25,7 +25,7 @@
 
         <div class="field">
             <div class="control">
-                <button class="button is-rounded" type="submit">Submit</button>
+                <button class="button is-rounded" type="submit">login</button>
             </div>
         </div>
     </form>
