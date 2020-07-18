@@ -13,7 +13,7 @@ if (email == "" || password == "") {
 } else {
     session.setAttribute("email", email);
     session.setAttribute("password", password);
-    response.sendRedirect("/waserel/");
+    response.sendRedirect("/waserel/?state=LOGIN_SUCCESS");
 }
 %>
 

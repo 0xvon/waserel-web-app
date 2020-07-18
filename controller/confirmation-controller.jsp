@@ -13,6 +13,6 @@ if (identity == "" || address == "") {
     response.sendRedirect("/waserel/confirmation.jsp");
 } else {
     session.setAttribute("isCartExist", null);
-    response.sendRedirect("/waserel/");
+    response.sendRedirect("/waserel/?state=BUY_SUCCESS");
 }
 %>

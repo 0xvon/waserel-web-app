@@ -43,7 +43,7 @@ String isCartExist = (String)session.getAttribute("isCartExist");
                 </div>
             </c:if>
         </div>
-        <c:if test="${isCartExist != null}">
+        <c:if test="${isCartExist != null && state != 'login'}">
             <div class="badge"></div>
         </c:if>
     </nav>

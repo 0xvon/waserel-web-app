@@ -12,17 +12,17 @@
 
 <script>
     function addCount() {
-        var count = Number(document.getElementsByClassName("amount")[0].textContent);
+        var count = Number(document.getElementsByClassName("amount")[0].value);
         if (count < 100) {
             count = count + 1;
-            document.getElementsByClassName("amount")[0].textContent = count;
+            document.getElementsByClassName("amount")[0].value = count;
         }
     }
     function subtractCount() {
-        var count = Number(document.getElementsByClassName("amount")[0].textContent);
+        var count = Number(document.getElementsByClassName("amount")[0].value);
         if (count > 1) {
             count = count - 1;
-            document.getElementsByClassName("amount")[0].textContent = count;
+            document.getElementsByClassName("amount")[0].value = count;
         }
     }
 </script>
@@ -35,7 +35,7 @@
             <div class="item-detail-img">
                 <img src="assets/product.png" alt="product">
             </div>
-            <form class="item-deital-metadata" action="./controller/cart-controller.jsp?type=add" method="POST">
+            <form class="item-deital-metadata" action="./controller/cart-controller.jsp?type=add&id=${id}" method="POST">
                 <div class="item-detail-name">
                     <p>Off White T</p>
                 </div>
@@ -47,7 +47,7 @@
                         </tr>
                         <tr>
                             <th>商品ID</th>
-                            <th name="itemId">0egcdhsad</th>
+                            <th>0egcdhsad</th>
                         </tr>
                         <tr>
                             <th>在庫数</th>
@@ -57,7 +57,7 @@
                 </table>
                 <div class="item-detail-count">
                     <jsp:include page="./components/actionbutton.jsp?type=subtract" flush="true" />
-                    <p class="amount" name="count">1</p>
+                    <input type="text" class="amount" name="count" value="1"></input>
                     <jsp:include page="./components/actionbutton.jsp?type=add" flush="true" />
                 </div>
                 <div class="field">

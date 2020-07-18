@@ -43,6 +43,15 @@ a {
     right: 20px;
 }
 
+/* snackbar */
+
+.mdl-snackbar {
+    left: 85% !important;
+    background-color: #00CC99 !important;
+    color: black !important;
+    font-weight: bold !important;
+}
+
 /* login */
 
 .login {
@@ -121,10 +130,13 @@ a {
 .item-name {
     width: 100%;
     margin: 10px auto;
+}
+
+.item-name p {
     color: #9AA4F9 !important;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.2rem;
+    font-weight: bold !important;
+    text-align: center !important;
+    font-size: 1.2rem !important;
 }
 
 .item-stock {
@@ -163,15 +175,15 @@ a {
     width: 330px;
 }
 
-.item-detail-name {
+.item-detail-name p {
     font-size: 1.2rem;
     color: #9AA4F9 !important;
-    font-weight: bold;
+    font-weight: bold !important;
     text-align: center;
 }
 
 .item-detail-table {
-    margin: 40px 0;
+    margin: 40px auto;
 }
 
 .actionButton {
@@ -201,6 +213,13 @@ a {
     line-height: 2rem;
     font-style: oblique;
     font-size: large;
+}
+
+.amount {
+    border: none !important;
+    margin: 0 !important;
+    max-width: 50px;
+    text-align: center;
 }
 
 /* cart */

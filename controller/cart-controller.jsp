@@ -6,16 +6,12 @@
 
 <%
 String type = request.getParameter("type");
-String itemId = request.getParameter("itemId");
-String itemCount = request.getParameter("count");
+String itemId = request.getParameter("id");
+String itemCount = (String)session.getAttribute("count");
 
 if (session.getAttribute("isCartExist") == null) {
     session.setAttribute("isCartExist", "true");
 }
 
-response.sendRedirect("/waserel/");
+response.sendRedirect("/waserel/?state=ADD_CART_SUCCESS");
 %>
-
-${param.type}<br>
-${param.itemId}<br>
-${param}<br>
