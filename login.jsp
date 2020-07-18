@@ -7,7 +7,7 @@
 <html lang="ja">
 <jsp:include page="./components/head.jsp" flush="true" />
 <body>
-    <jsp:include page="./components/header.jsp" flush="true" />
+    <jsp:include page="./components/header.jsp?state=login" flush="true" />
     <jsp:include page="./components/pagetitle.jsp?title=LOGIN" flush="true" />
     <form class="login" action="controller/login-controller.jsp" method="POST">
         <div class="field">

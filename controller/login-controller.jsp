@@ -5,8 +5,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%
-    session.setAttribute("email", request.getParameter("email"));
-    session.setAttribute("password", request.getParameter("password"));
+String email = request.getParameter("email");
+String password = request.getParameter("password");
+
+if (email == "" || password == "") {
+    response.sendRedirect("/waserel/login.jsp"); 
+} else {
+    session.setAttribute("email", email);
+    session.setAttribute("password", password);
+    response.sendRedirect("/waserel/");
+}
 %>
 
 ${email}<br>

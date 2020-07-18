@@ -4,6 +4,16 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<%
+
+String email = (String)session.getAttribute("email");
+String password = (String)session.getAttribute("password");
+
+if (email == null || password == null) {
+    response.sendRedirect("/waserel/login.jsp");
+}
+
+%>
 
 <!DOCTYPE html>
 <html lang="ja">

@@ -3,6 +3,8 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:set var="state" value="${param.state}" />
+
 <div class="header">
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
@@ -17,23 +19,25 @@
             </a>
         </div>
         <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <a href="/waserel/history.jsp">
-                        <img src="assets/history.png" alt="sales history" height="28">
-                    </a>
+            <c:if test="${state != 'login'}" >
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a href="/waserel/history.jsp">
+                            <img src="assets/history.png" alt="sales history" height="28">
+                        </a>
+                    </div>
+                    <!-- <div class="navbar-item">
+                        <a href="#">
+                            <img src="assets/mypage.png" alt="mypage" height="28">
+                        </a>
+                    </div> -->
+                    <div class="navbar-item">
+                        <a href="/waserel/cart.jsp">
+                            <img src="assets/cart.png" alt="cart" height="28">
+                        </a>
+                    </div>
                 </div>
-                <!-- <div class="navbar-item">
-                    <a href="#">
-                        <img src="assets/mypage.png" alt="mypage" height="28">
-                    </a>
-                </div> -->
-                <div class="navbar-item">
-                    <a href="/waserel/cart.jsp">
-                        <img src="assets/cart.png" alt="cart" height="28">
-                    </a>
-                </div>
-            </div>
+            </c:if>
         </div>
     </nav>
 </div>
