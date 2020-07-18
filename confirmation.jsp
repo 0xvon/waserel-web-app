@@ -30,7 +30,7 @@
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />
     <jsp:include page="./components/pagetitle.jsp?title=CONFIRMATION" flush="true" />
-    <form class="confirmation" action="controller/confirm-controller.jsp" method="POST">
+    <form class="confirmation" action="controller/confirmation-controller.jsp" method="POST">
         <div class="field">
             <label class="label">name</label>
             <div class="control">
