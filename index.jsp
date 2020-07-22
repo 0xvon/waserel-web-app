@@ -8,10 +8,9 @@
 
 <%
 
-String email = (String)session.getAttribute("email");
-String password = (String)session.getAttribute("password");
+String user_id = (String)session.getAttribute("user_id");
 
-if (email == null || password == null) {
+if (user_id == null) {
     response.sendRedirect("/waserel/login.jsp");
 }
 
@@ -20,6 +19,7 @@ if (email == null || password == null) {
 <!DOCTYPE html>
 <html lang="ja">
 <jsp:include page="./components/head.jsp" flush="true" />
+
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />
     <jsp:include page="./components/pagetitle.jsp?title=ITEM" flush="true" />
@@ -35,14 +35,21 @@ if (email == null || password == null) {
         </c:when>
 
     </c:choose>
-    
+
     <div class="items">
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product" flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product" flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product" flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product" flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product" flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product" flush="true" />
+        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
+            flush="true" />
+        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
+            flush="true" />
+        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
+            flush="true" />
+        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
+            flush="true" />
+        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
+            flush="true" />
+        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
+            flush="true" />
     </div>
 </body>
+
 </html>
