@@ -10,22 +10,13 @@
 <html lang="ja">
 <jsp:include page="./components/head.jsp" flush="true" />
 
-<script>
-    function addCount() {
-        var count = Number(document.getElementsByClassName("amount")[0].textContent);
-        if (count < 100) {
-            count = count + 1;
-            document.getElementsByClassName("amount")[0].textContent = count;
-        }
-    }
-    function subtractCount() {
-        var count = Number(document.getElementsByClassName("amount")[0].textContent);
-        if (count > 1) {
-            count = count - 1;
-            document.getElementsByClassName("amount")[0].textContent = count;
-        }
-    }
-</script>
+<sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
+<sql:query var="orders">
+    SELECT order_id, item_name, amount, price, ordered_at
+    FROM orders, items
+    WHERE order_state = 'delivered' AND items.item_id = orders.item_id
+    ORDER BY ordered_at;
+</sql:query>
 
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />
@@ -37,36 +28,25 @@
                 <tr>
                     <th>日時</th>
                     <th>商品名</th>
-                    <th>サイズ</th>
                     <th>量</th>
                     <th>値段</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>2020/07/01</td>
-                    <td>Off-White T</td>
-                    <td>M</td>
-                    <td>1</td>
-                    <td>300000</td>
-                </tr>
-                <tr>
-                    <td>2020/07/01</td>
-                    <td>Off-White T</td>
-                    <td>M</td>
-                    <td>1</td>
-                    <td>300000</td>
-                </tr>
-                <tr>
-                    <td>2020/07/01</td>
-                    <td>Off-White T</td>
-                    <td>M</td>
-                    <td>1</td>
-                    <td>300000</td>
-                </tr>
+                <c:forEach var="order" items="${orders.rows}">
+                    <tr>
+                        <td>
+                            <fmt:formatDate type="time" value="${order.ordered_at}" pattern="yyyy/MM/dd" />
+                        </td>
+                        <td>${order.item_name}</td>
+                        <td>${order.amount}</td>
+                        <td>￥${order.amount * order.price}</td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
-    </div> 
-    
+    </div>
+
 </body>
+
 </html>

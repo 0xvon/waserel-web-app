@@ -47,9 +47,16 @@ a {
 
 .mdl-snackbar {
     left: 85% !important;
-    background-color: #00CC99 !important;
     color: black !important;
     font-weight: bold !important;
+}
+
+.success-snackbar {
+    background-color: #00CC99 !important;
+}
+
+.failed-snackbar {
+    background-color: red !important;
 }
 
 /* login */
@@ -259,7 +266,6 @@ tbody tr td {
     font-weight: bold;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center;
     position: relative;
     left: 70px;
     margin-bottom: 60px;

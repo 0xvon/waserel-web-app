@@ -20,35 +20,34 @@ if (user_id == null) {
 <html lang="ja">
 <jsp:include page="./components/head.jsp" flush="true" />
 
+<sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
+<sql:query var="items">
+    SELECT item_id, item_name, image_url, stock_num
+    FROM items
+    ORDER BY item_name;
+</sql:query>
+
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />
     <jsp:include page="./components/pagetitle.jsp?title=ITEM" flush="true" />
     <c:choose>
         <c:when test="${state == 'LOGIN_SUCCESS'}">
-            <jsp:include page="./components/snackbar.jsp?message=succeed+to+login" flush="true" />
+            <jsp:include page="./components/snackbar.jsp?type=success&message=succeed+to+login" flush="true" />
         </c:when>
         <c:when test="${state == 'BUY_SUCCESS'}">
-            <jsp:include page="./components/snackbar.jsp?message=succeed+to+buy" flush="true" />
+            <jsp:include page="./components/snackbar.jsp?type=success&message=succeed+to+buy" flush="true" />
         </c:when>
         <c:when test="${state == 'ADD_CART_SUCCESS'}">
-            <jsp:include page="./components/snackbar.jsp?message=succeed+to+add+cart" flush="true" />
+            <jsp:include page="./components/snackbar.jsp?type=success&message=succeed+to+add+cart" flush="true" />
         </c:when>
-
     </c:choose>
 
     <div class="items">
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
-            flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
-            flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
-            flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
-            flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
-            flush="true" />
-        <jsp:include page="./components/item.jsp?itemId=1&itemName=OffWhite+T+Shirt&itemStock=1000&itemImage=product"
-            flush="true" />
+        <c:forEach var="item" items="${items.rows}">
+            <jsp:include
+                page="./components/item.jsp?itemId=${item.item_id}&itemName=${item.item_name}&itemStock=${item.stock_num}&itemImage=${item.image_url}"
+                flush="true" />
+        </c:forEach>
     </div>
 </body>
 

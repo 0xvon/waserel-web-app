@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="actionType" value="${param.type}" />
-    
+
 
 <c:choose>
     <c:when test="${actionType == 'add'}">
@@ -15,6 +15,9 @@
         <button class="actionButton" type="button" onclick="subtractCount()">ー</button>
     </c:when>
     <c:when test="${actionType == 'delete'}">
-        <button class="actionButton" type="button" onclick="deleteOrder()">✕</button>
+        <c:set var="order_id" value="${param.orderId}" />
+        <a href="/waserel/controller/cart-controller.jsp?type=delete&order_id=${order_id}">
+            <button class="actionButton" type="button">✕</button>
+        </a>
     </c:when>
 </c:choose>

@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="id" value="${param.id}" />
+<c:set var="state" value="${param.state}" />
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -30,6 +31,16 @@
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />
     <jsp:include page="./components/pagetitle.jsp?title=CONFIRMATION" flush="true" />
+
+    <c:choose>
+        <c:when test="${state == 'HAS_NULL'}">
+            <jsp:include page="./components/snackbar.jsp?type=failed&message=fill in the blank" flush="true" />
+        </c:when>
+        <c:when test="${state == 'BUY_FAILED'}">
+            <jsp:include page="./components/snackbar.jsp?type=failed&message=failed+to+buy" flush="true" />
+        </c:when>
+    </c:choose>
+
     <form class="confirmation" action="controller/confirmation-controller.jsp" method="POST">
         <div class="field">
             <label class="label">name</label>
@@ -47,16 +58,16 @@
             <label class="label">payment</label>
             <div class="control select-button">
                 <div class="select is-large">
-                  <select name="payment">
-                    <option selected value="credit">クレジットカード</option>
-                    <option value="convenience">コンビニ振込</option>
-                    <option value="applePay">Apple Pay</option>
-                  </select>
+                    <select name="payment">
+                        <option selected value="credit_card">クレジットカード</option>
+                        <option value="transfer">コンビニ振込</option>
+                        <option value="apple_pay">Apple Pay</option>
+                    </select>
                 </div>
                 <span class="icon is-large is-left">
-                  <i class="fas fa-globe"></i>
+                    <i class="fas fa-globe"></i>
                 </span>
-              </div>
+            </div>
         </div>
 
         <div class="field">
@@ -65,6 +76,7 @@
             </div>
         </div>
     </form>
-    
+
 </body>
+
 </html>

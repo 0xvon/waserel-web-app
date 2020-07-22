@@ -10,7 +10,7 @@
 
 <a class="item" href="/waserel/item.jsp?id=${itemId}">
     <div class="item-img">
-        <img src="assets/${itemImage}.png" alt="product">
+        <img src="${itemImage}" alt="product">
     </div>
     <div class="item-info">
         <div class="item-name">

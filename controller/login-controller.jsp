@@ -43,7 +43,7 @@ int login(String email, String password) {
 String email = request.getParameter("email");
 String password = request.getParameter("password");
 
-if (email == null || password == null) {
+if (email == "" || password == "") {
     response.sendRedirect("/waserel/login.jsp?state=HAS_NULL");
 } else {
     int user_id = login(email, password);

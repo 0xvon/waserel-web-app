@@ -4,25 +4,37 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="message" value="${param.message}" />
+<c:set var="type" value="${param.type}" />
 
-<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
-  <div class="mdl-snackbar__text"></div>
-  <button class="mdl-snackbar__action" type="button"></button>
-</div>
+<c:choose>
+    <c:when test="${type == 'success'}">
+        <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar success-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+    </c:when>
+    <c:when test="${type == 'failed'}">
+        <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar failed-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+    </c:when>
+</c:choose>
+
 
 <script>
-    window.onload = function() {
+    window.onload = function () {
         'use strict';
         console.log('hell');
         var snackbarContainer = document.querySelector('#demo-snackbar-example');
         var showSnackbarButton = document.querySelector('#demo-show-snackbar');
-        var handler = function(event) {
+        var handler = function (event) {
             showSnackbarButton.style.backgroundColor = '';
         };
         var data = {
             message: '${message}',
-            timeout: 2000 
+            timeout: 2000
         };
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
     };
-    </script>
+</script>

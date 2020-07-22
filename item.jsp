@@ -10,6 +10,15 @@
 <html lang="ja">
 <jsp:include page="./components/head.jsp" flush="true" />
 
+<sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
+<sql:query var="items">
+    SELECT item_name, image_url, stock_num, item_code, price, description
+    FROM items
+    WHERE item_id = ?;
+    <sql:param value="${id}" />
+</sql:query>
+<c:set var="item" value="${items.rows[0]}" />
+
 <script>
     function addCount() {
         var count = Number(document.getElementsByClassName("amount")[0].value);
@@ -33,25 +42,26 @@
     <div class="item-detail">
         <div class="item-detail-info">
             <div class="item-detail-img">
-                <img src="assets/product.png" alt="product">
+                <img src="${item.image_url}" alt="product">
             </div>
-            <form class="item-deital-metadata" action="./controller/cart-controller.jsp?type=add&id=${id}" method="POST">
+            <form class="item-deital-metadata" action="./controller/cart-controller.jsp?type=add&id=${id}"
+                method="POST">
                 <div class="item-detail-name">
-                    <p>Off White T</p>
+                    <p>${item.item_name}</p>
                 </div>
                 <table class="item-detail-table table is-bordered">
                     <tbody>
                         <tr>
                             <th>値段</th>
-                            <th>￥300000</th>
+                            <th>￥${item.price}</th>
                         </tr>
                         <tr>
                             <th>商品ID</th>
-                            <th>0egcdhsad</th>
+                            <th>${item.item_code}</th>
                         </tr>
                         <tr>
                             <th>在庫数</th>
-                            <th>100</th>
+                            <th>${item.stock_num}</th>
                         </tr>
                     </tbody>
                 </table>
@@ -68,10 +78,9 @@
             </form>
         </div>
         <div class="item-detail-description">
-            <p>
-                始めて大森さんに学問背後しっかり自失に立ちない自分こうした自分我々か著作をという小相当なましだたて、この時間は私か弟相手を飲んて、大森さんののに学校の私にとにかく不運動と見えるて私責任がお経過よりしように何だか今存在を生れだっべきて、同時にもう批評に書いたながら来ますのをしだた。すなわちところがお間柄でつけよのは少し無事と食わせろでから、とんだ懐手とはありたてに対して国へやっからいけたん。その所光明の時ある個人も私上に受けるありかと嘉納さんでするたな、人の事実あるというご通知ですだたが、当人の以上を辺を昔でもの浮華をほかいうばいると、はっきりの今朝が出てこうしたうちがもう来らんだと落ちつけるん事たて、ないうませばはっきりお理非云っで事なませです。そこで人か低級か前後から知らだて、事実上自分でなっから下さらた時でご生活の当時へ分りないまし。
-            </p>
+            <p>${item.description}</p>
         </div>
     </div>
 </body>
+
 </html>
