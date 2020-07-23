@@ -6,8 +6,16 @@
 <c:set var="state" value="${param.state}" />
 
 <%
-String isCartExist = (String)session.getAttribute("isCartExist");
+String user_id = (String)session.getAttribute("user_id");
 %>
+
+<sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
+<sql:query var="order_num">
+    SELECT COUNT(*) AS order_num
+    FROM orders
+    WHERE user_id = ? AND order_state = 'ordered';
+    <sql:param value="${user_id}" />
+</sql:query>
 
 <div class="header">
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -23,7 +31,7 @@ String isCartExist = (String)session.getAttribute("isCartExist");
             </a>
         </div>
         <div id="navbarBasicExample" class="navbar-menu">
-            <c:if test="${state != 'login'}" >
+            <c:if test="${state != 'login'}">
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <a href="/waserel/history.jsp">
@@ -43,8 +51,10 @@ String isCartExist = (String)session.getAttribute("isCartExist");
                 </div>
             </c:if>
         </div>
-        <c:if test="${isCartExist != null && state != 'login'}">
-            <div class="badge"></div>
+        <c:if test="${order_num.rows[0] != null && state != 'login'}">
+            <p class="badge">
+                ${order_num.rows[0].order_num}
+            </p>
         </c:if>
     </nav>
 </div>

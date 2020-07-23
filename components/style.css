@@ -33,14 +33,22 @@ a {
 }
 
 .badge {
-    width: 15px !important;
-    height: 15px !important;
-    background-color: white !important;
-    border: 2px solid crimson;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: crimson !important;
+    border: 1px solid white;
     border-radius: 10px;
     position: relative;
     top: 4px;
     right: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder !important;
+    color: white;
 }
 
 /* snackbar */

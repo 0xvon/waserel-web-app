@@ -64,9 +64,6 @@ switch (type) {
         String count = request.getParameter("count");
         String user_id = (String)session.getAttribute("user_id");
         
-        if (session.getAttribute("isCartExist") == null) {
-            session.setAttribute("isCartExist", "true");
-        }
         boolean isAddSucceed = addOrder(item_id, count, user_id);
         if (isAddSucceed) {
             response.sendRedirect("/waserel/?state=ADD_CART_SUCCESS");
