@@ -4,7 +4,7 @@
 
 <img src="./images/usage.gif" width=500 />
 
-## Busuness Schema
+## Business Schema
 
 |||
 |---|---|
@@ -18,6 +18,24 @@
 - Java Server Pages
 - MySQL(H2)
 - Tomcat
+
+## Feature
+
+#### コンポーネント設計
+
+ヘッダやボタンなどのアイテムを再利用するようなファイル設計を採用しています。
+
+#### MVCアーキテクチャ
+
+View層とController層を明確に分けています。今回はModel層は設計していません。
+
+#### レスポンシブデザイン
+
+どのデバイスでも正常に表示できるよう考慮されたCSSを実装しています。
+
+#### Fool Proof
+
+ユーザーの想定されないアクションをできる限り排除し、誤ったアクションを実行された時は適切にエラーを表示し、画面遷移するようにしています。
 
 ## Usage
 
@@ -34,7 +52,7 @@ $ cd sdev/webapp && git clone git@github.com:masatsch/waserel-web-app.git
 ### 2. Run
 
 ```
-$ cd ../.. && java -jar webapp-server-2020.jar
+$ cd .. && java -jar webapp-server-2020.jar
 ```
 
 ### 3. Enjoy
