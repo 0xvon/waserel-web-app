@@ -6,6 +6,7 @@
 
 <c:set var="id" value="${param.id}" />
 <c:set var="state" value="${param.state}" />
+<c:set var="user_id" value="${user_id}" />
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -15,8 +16,16 @@
 <sql:query var="orders">
     SELECT order_id, item_name, amount, price
     FROM orders, items
-    WHERE order_state = 'ordered' AND items.item_id = orders.item_id
+    WHERE order_state = 'ordered' AND items.item_id = orders.item_id AND orders.user_id = ?
     ORDER BY ordered_at;
+    <sql:param value="${user_id}" />
+</sql:query>
+
+<sql:query var="total_price">
+    SELECT sum(amount * price) AS total_price
+    FROM orders, items
+    WHERE order_state = 'ordered' AND items.item_id = orders.item_id AND orders.user_id = ?;
+    <sql:param value="${user_id}" />
 </sql:query>
 
 <body>
@@ -60,7 +69,7 @@
                 <div class="sum-desc">
                     <p>合計</p>
                 </div>
-                <div class="sum">￥xxxxxx</div>
+                <div class="sum">￥${total_price.rows[0].total_price}</div>
             </div>
             <div class="confirm-button">
                 <a href="/waserel/confirmation.jsp">
