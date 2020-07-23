@@ -14,7 +14,8 @@
     <jsp:include page="./components/pagetitle.jsp?title=LOGIN" flush="true" />
     <c:choose>
         <c:when test="${state == 'NOT_FOUND'}">
-            <jsp:include page="./components/snackbar.jsp?type=failed&message=there is no email address" flush="true" />
+            <jsp:include page="./components/snackbar.jsp?type=failed&message=emial address or password is incorrect"
+                flush="true" />
         </c:when>
         <c:when test="${state == 'HAS_NULL'}">
             <jsp:include page="./components/snackbar.jsp?type=failed&message=please fill in the blank" flush="true" />

@@ -38,11 +38,6 @@ String user_id = (String)session.getAttribute("user_id");
                             <img src="assets/history.png" alt="sales history" height="28">
                         </a>
                     </div>
-                    <!-- <div class="navbar-item">
-                        <a href="#">
-                            <img src="assets/mypage.png" alt="mypage" height="28">
-                        </a>
-                    </div> -->
                     <div class="navbar-item">
                         <a href="/waserel/cart.jsp">
                             <img src="assets/cart.png" alt="cart" height="28">
@@ -51,7 +46,7 @@ String user_id = (String)session.getAttribute("user_id");
                 </div>
             </c:if>
         </div>
-        <c:if test="${order_num.rows[0] != null && state != 'login'}">
+        <c:if test="${order_num.rows[0].order_num != 0 && state != 'login'}">
             <p class="badge">${order_num.rows[0].order_num}</p>
         </c:if>
     </nav>
