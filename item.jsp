@@ -22,7 +22,9 @@
 <script>
     function addCount() {
         var count = Number(document.getElementsByClassName("amount")[0].value);
-        if (count < 100) {
+        var stock = Number(document.getElementsByClassName("stock_num")[0].textContent);
+        console.log(stock)
+        if (count < stock) {
             count = count + 1;
             document.getElementsByClassName("amount")[0].value = count;
         }
@@ -61,7 +63,7 @@
                         </tr>
                         <tr>
                             <th>在庫数</th>
-                            <th>${item.stock_num}</th>
+                            <th class="stock_num">${item.stock_num}</th>
                         </tr>
                     </tbody>
                 </table>

@@ -12,8 +12,17 @@ boolean addOrder(String item_id, String count, String user_id) {
         Connection connection = DriverManager.getConnection("jdbc:h2:sdev", "", "");
         Statement statement = connection.createStatement();
 
-        String query = String.format("INSERT INTO orders (item_id, user_id, amount, order_state) VALUES (%s, %s, %s, 'ordered')", item_id, user_id, count);
-        int resultSet = statement.executeUpdate(query);
+        String searchQuery = String.format("SELECT order_id, amount FROM orders WHERE item_id = %s AND order_state = 'ordered'", item_id, user_id, count);
+        ResultSet searchResult = statement.executeQuery(searchQuery);
+        
+        if (searchResult.next()) {
+            int order_id = searchResult.getInt("order_id");
+            String updateQuery = String.format("UPDATE orders SET amount = %s WHERE order_id = %d", count, order_id);
+            int updateSet = statement.executeUpdate(updateQuery);
+        } else {
+            String insertQuery = String.format("INSERT INTO orders (item_id, user_id, amount, order_state) VALUES (%s, %s, %s, 'ordered')", item_id, user_id, count);
+            int insertSet = statement.executeUpdate(insertQuery);
+        }
 
         statement.close();
         connection.close();

@@ -52,9 +52,7 @@ String user_id = (String)session.getAttribute("user_id");
             </c:if>
         </div>
         <c:if test="${order_num.rows[0] != null && state != 'login'}">
-            <p class="badge">
-                ${order_num.rows[0].order_num}
-            </p>
+            <p class="badge">${order_num.rows[0].order_num}</p>
         </c:if>
     </nav>
 </div>

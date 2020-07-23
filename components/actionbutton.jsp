@@ -17,7 +17,7 @@
     <c:when test="${actionType == 'delete'}">
         <c:set var="order_id" value="${param.orderId}" />
         <a href="/waserel/controller/cart-controller.jsp?type=delete&order_id=${order_id}">
-            <button class="actionButton" type="button">✕</button>
+            <button class="actionButton deleteButton" type="button">✕</button>
         </a>
     </c:when>
 </c:choose>

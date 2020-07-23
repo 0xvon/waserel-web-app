@@ -217,6 +217,11 @@ a {
     align-items: center;
 }
 
+.deleteButton {
+    width: 20px !important;
+    height: 20px !important;
+}
+
 .item-detail-count {
     display: flex !important;
     flex-direction: row !important;
@@ -259,7 +264,7 @@ a {
 tbody tr td {
     font-size: 1.7rem;
     color: #9AA4F9 !important;
-    padding: 10px 10px 10px 0 !important;
+    padding: 10px !important;
     font-weight: bold;
 }
 
