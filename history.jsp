@@ -9,14 +9,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <jsp:include page="./components/head.jsp" flush="true" />
-
-<sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
-<sql:query var="orders">
-    SELECT order_id, item_name, amount, price, ordered_at
-    FROM orders, items
-    WHERE order_state = 'delivered' AND items.item_id = orders.item_id
-    ORDER BY ordered_at;
-</sql:query>
+<jsp:include page="./controller/orders-controller.jsp?state=history" flush="true" />
 
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />

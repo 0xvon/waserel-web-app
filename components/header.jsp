@@ -4,18 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="state" value="${param.state}" />
-
-<%
-String user_id = (String)session.getAttribute("user_id");
-%>
-
-<sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
-<sql:query var="order_num">
-    SELECT COUNT(*) AS order_num
-    FROM orders
-    WHERE user_id = ? AND order_state = 'ordered';
-    <sql:param value="${user_id}" />
-</sql:query>
+<jsp:include page="../controller/orders-controller.jsp?state=header" flush="true" />
 
 <div class="header">
     <nav class="navbar" role="navigation" aria-label="main navigation">

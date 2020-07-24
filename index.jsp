@@ -19,13 +19,9 @@ if (user_id == null) {
 <!DOCTYPE html>
 <html lang="ja">
 <jsp:include page="./components/head.jsp" flush="true" />
+<jsp:include page="./controller/items-controller.jsp?state=index" flush="true" />
 
-<sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
-<sql:query var="items">
-    SELECT item_id, item_name, image_url, stock_num
-    FROM items
-    ORDER BY item_name;
-</sql:query>
+
 
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />

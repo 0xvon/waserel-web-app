@@ -11,23 +11,6 @@
 <html lang="ja">
 <jsp:include page="./components/head.jsp" flush="true" />
 
-<script>
-    function addCount() {
-        var count = Number(document.getElementsByClassName("amount")[0].textContent);
-        if (count < 100) {
-            count = count + 1;
-            document.getElementsByClassName("amount")[0].textContent = count;
-        }
-    }
-    function subtractCount() {
-        var count = Number(document.getElementsByClassName("amount")[0].textContent);
-        if (count > 1) {
-            count = count - 1;
-            document.getElementsByClassName("amount")[0].textContent = count;
-        }
-    }
-</script>
-
 <body>
     <jsp:include page="./components/header.jsp" flush="true" />
     <jsp:include page="./components/pagetitle.jsp?title=CONFIRMATION" flush="true" />

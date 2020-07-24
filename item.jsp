@@ -11,13 +11,7 @@
 <jsp:include page="./components/head.jsp" flush="true" />
 
 <sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
-<sql:query var="items">
-    SELECT item_name, image_url, stock_num, item_code, price, description
-    FROM items
-    WHERE item_id = ?;
-    <sql:param value="${id}" />
-</sql:query>
-<c:set var="item" value="${items.rows[0]}" />
+<jsp:include page="./controller/items-controller.jsp?state=detail&id=${id}" flush="true" />
 
 <script>
     function addCount() {

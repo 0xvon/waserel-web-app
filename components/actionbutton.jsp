@@ -6,7 +6,6 @@
 
 <c:set var="actionType" value="${param.type}" />
 
-
 <c:choose>
     <c:when test="${actionType == 'add'}">
         <button class="actionButton" type="button" onclick="addCount()">＋</button>

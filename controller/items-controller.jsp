@@ -13,15 +13,15 @@
             SELECT item_id, item_name, image_url, stock_num
             FROM items;
         </sql:query>
+        <c:set var="items" value="${items}" scope="request" />
     </c:when>
     <c:when test="${state == 'detail'}">
-        <sql:setDataSource driver="org.h2.Driver" url="jdbc:h2:sdev" />
         <sql:query var="items">
             SELECT item_name, image_url, stock_num, item_code, price, description
             FROM items
             WHERE item_id = ?;
             <sql:param value="${param.id}" />
         </sql:query>
-        <c:set var="item" value="${items.rows[0]}" />
+        <c:set var="item" value="${items.rows[0]}" scope="request" />
     </c:when>
 </c:choose>

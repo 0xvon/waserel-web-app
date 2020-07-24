@@ -21,7 +21,6 @@
     </c:when>
 </c:choose>
 
-
 <script>
     window.onload = function () {
         'use strict';
